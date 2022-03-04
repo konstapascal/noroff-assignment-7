@@ -1,5 +1,22 @@
-<ul class="container mx-auto text-2xl text-blue-600 underline">
-  <li><a [routerLink]="['/']">Home Page</a></li>
-  <li><a [routerLink]="['/trainers']">Trainers Page</a></li>
-  <li><a [routerLink]="['/catalogue']">Catalogue Page</a></li>
-</ul>
+<nav class="fixed w-full bg-blue-200 py-6">
+  <div class="container flex justify-between items-center mx-auto">
+    <div class="flex gap-4 text-2xl text-blue-600">
+      <a class="hover:underline" [routerLink]="['/catalogue']"
+        >Catalogue Page</a
+      >
+      <a class="hover:underline" [routerLink]="['/trainer']">Trainer Page</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <p class="text-xl italic">
+        Logged in as
+        <span class="font-semibold not-italic">{{ username }}</span>
+      </p>
+      <button
+        class="text-lg font-semibold bg-red-500 text-slate-50 px-4 py-2 rounded-sm"
+        (click)="onLogout()"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>

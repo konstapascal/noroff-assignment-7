@@ -1,3 +1,10 @@
-<main class="container mx-auto">
-  <p class="text-5xl">catalogue works!</p>
+<app-navbar></app-navbar>
+<main class="bg-yellow-50 min-h-screen">
+  <div class="container mx-auto py-40">
+    <h1 class="text-5xl">Catalogue Page</h1>
+    <app-pokemon-list
+      [pokemonArr]="pokemonArr"
+      (clicked)="onPokemonClick($event)"
+    ></app-pokemon-list>
+  </div>
 </main>
