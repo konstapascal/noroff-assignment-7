@@ -13,9 +13,7 @@ export class NavbarComponent implements OnInit {
     private readonly router: Router,
     private readonly authService: AuthService,
     private readonly userService: UserService
-  ) {
-    console.log(userService);
-  }
+  ) {}
 
   public username = this.userService.user?.username;
 

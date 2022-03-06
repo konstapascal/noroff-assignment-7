@@ -14,12 +14,7 @@ export class UserService {
     const storedUser = sessionStorage.getItem(USER_STORAGE_KEY);
     if (!storedUser) return;
 
-    try {
-      const _user = JSON.parse(storedUser);
-      this.user = _user as User;
-    } catch (error) {
-      sessionStorage.removeItem(USER_STORAGE_KEY);
-    }
+    this.user = JSON.parse(storedUser) as User;
   }
 
   public setUser(user: User | undefined): void {

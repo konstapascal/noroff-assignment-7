@@ -2,9 +2,9 @@
 <main class="bg-yellow-50 min-h-screen">
   <div class="container mx-auto py-40">
     <h1 class="text-5xl">Catalogue Page</h1>
-    <app-pokemon-list
-      [pokemonArr]="pokemonArr"
+    <app-catalogue-pokemon-list
+      [allPokemonArr]="allPokemonArr"
       (clicked)="onPokemonClick($event)"
-    ></app-pokemon-list>
+    ></app-catalogue-pokemon-list>
   </div>
 </main>

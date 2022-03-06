@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormattedPokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -8,17 +9,20 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./catalogue.page.css'],
 })
 export class CataloguePage implements OnInit {
-  public pokemonArr: FormattedPokemon[] = [];
+  public allPokemonArr: FormattedPokemon[] = [];
 
-  constructor(private readonly pokemonService: PokemonService) {}
+  constructor(
+    private readonly pokemonService: PokemonService,
+    private readonly userService: UserService
+  ) {}
 
   public ngOnInit(): void {
     this.pokemonService
-      .getPokemon()
-      .subscribe((_pokemonArr) => (this.pokemonArr = _pokemonArr));
+      .getAllPokemon()
+      .subscribe((_allPokemonArr) => (this.allPokemonArr = _allPokemonArr));
   }
 
   public onPokemonClick(pokemon: FormattedPokemon): void {
-    console.log(`You just captured ${pokemon.name}!`);
+    this.pokemonService.addPokemon(pokemon, this.userService.user?.username);
   }
 }

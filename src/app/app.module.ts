@@ -5,13 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginFormComponent } from './components/landing-page-components/login-form/login-form.component';
+import { NavbarComponent } from './components/shared-components/navbar/navbar.component';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LandingPage } from './pages/landing/landing.page';
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
-import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { CataloguePokemonListComponent } from './components/catalogue-page-components/catalogue-pokemon-list/catalogue-pokemon-list.component';
+import { CataloguePokemonCardComponent } from './components/catalogue-page-components/catalogue-pokemon-card/catalogue-pokemon-card.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     LandingPage,
     LoginFormComponent,
     CataloguePage,
+    CataloguePokemonListComponent,
+    CataloguePokemonCardComponent,
     TrainerPage,
     NotFoundPage,
-    PokemonListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

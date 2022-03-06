@@ -2,12 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormattedPokemon } from 'src/app/models/pokemon.model';
 
 @Component({
-  selector: 'app-pokemon-list',
-  templateUrl: './pokemon-list.component.html',
-  styleUrls: ['./pokemon-list.component.css'],
+  selector: 'app-catalogue-pokemon-list',
+  templateUrl: './catalogue-pokemon-list.component.html',
+  styleUrls: ['./catalogue-pokemon-list.component.css'],
 })
-export class PokemonListComponent implements OnInit {
-  @Input() pokemonArr: FormattedPokemon[] = [];
+export class CataloguePokemonListComponent implements OnInit {
+  @Input() allPokemonArr: FormattedPokemon[] = [];
   @Output() clicked: EventEmitter<FormattedPokemon> = new EventEmitter();
 
   constructor() {}
@@ -16,9 +16,5 @@ export class PokemonListComponent implements OnInit {
 
   public onPokemonClick(pokemon: FormattedPokemon): void {
     this.clicked.emit(pokemon);
-  }
-
-  public capitalize(word: string): string {
-    return word.charAt(0).toUpperCase() + word.slice(1);
   }
 }

@@ -18,7 +18,7 @@ export class AuthService {
   ) {}
 
   public login(username: string): Observable<User> {
-    return this.checkUser(username).pipe(
+    return this.getUser(username).pipe(
       switchMap((user: User | undefined) => {
         if (!user) return this.createUser(username);
         return of(user);
@@ -30,7 +30,7 @@ export class AuthService {
     this.userService.clearUser();
   }
 
-  private checkUser(username: string): Observable<User | undefined> {
+  public getUser(username: string): Observable<User | undefined> {
     return this.http
       .get<User[]>(`${TRAINERS_API_URL}?username=${username}`)
       .pipe(
