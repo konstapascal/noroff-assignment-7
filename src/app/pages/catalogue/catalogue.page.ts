@@ -15,7 +15,7 @@ export class CataloguePage implements OnInit {
   public ngOnInit(): void {
     const sessionPokemon = sessionStorage.getItem('allPokemon');
 
-    if (!sessionPokemon) {
+    if (!sessionPokemon || JSON.parse(sessionPokemon).length === 0) {
       this.pokemonService.getAllPokemon().subscribe((_allPokemonArr) => {
         this.allPokemonArr = _allPokemonArr;
         this.pokemonService.setPokemon(_allPokemonArr);

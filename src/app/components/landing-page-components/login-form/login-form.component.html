@@ -1,4 +1,9 @@
-<form class="mt-12" ngForm #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+<form
+  class="mt-12 text-xl text-center"
+  ngForm
+  #loginForm="ngForm"
+  (ngSubmit)="onSubmit(loginForm)"
+>
   <label for="username" class="sr-only">Username: </label>
   <input
     type="text"
@@ -8,21 +13,24 @@
     name="username"
     id="username"
     required
-    minlength="3"
+    minlength="4"
     maxlength="40"
-    class="border-2 p-2 rounded-sm"
+    class="w-1/5 px-4 py-4 rounded-md shadow-md"
   />
 
   <button
+    class="font-semibold bg-blue-600 shadow-md disabled:opacity-50 disabled:hover:bg-blue-600 hover:bg-blue-700 ml-4 rounded-md transition-all text-slate-50 px-8 py-4"
     type="submit"
-    class="border-2 px-4 py-2 ml-2 bg-blue-400 text-slate-50 text-lg font-semibold rounded-sm"
     [disabled]="loginForm.invalid"
   >
-    Login
+    Submit
   </button>
 
-  <div *ngIf="username.errors && (username.dirty || username.touched)">
-    <p *ngIf="username.errors['required']">Username is required</p>
-    <p *ngIf="username.errors['minlength']">Username is too short</p>
+  <div
+    class="mt-6 font-semibold text-2xl text-blue-200"
+    *ngIf="username.errors && (username.dirty || username.touched)"
+  >
+    <p *ngIf="username.errors['required']">Username is required!</p>
+    <p *ngIf="username.errors['minlength']">Username is too short!</p>
   </div>
 </form>

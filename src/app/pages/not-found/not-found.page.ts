@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NotFoundPage implements OnInit {
   constructor(private readonly router: Router) {
-    setTimeout(() => this.router.navigateByUrl('/'), 1500);
+    setTimeout(() => this.router.navigateByUrl('/'), 2000);
   }
 
   ngOnInit(): void {}

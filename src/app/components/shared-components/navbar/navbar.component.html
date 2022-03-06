@@ -1,12 +1,24 @@
 <nav class="bg-blue-400 border-b-2 border-yellow-100 text-blue-50 py-8">
   <div class="container flex justify-evenly items-center mx-auto">
-    <div class="flex gap-8 text-3xl font-semibold">
-      <a class="hover:underline" [routerLink]="['/catalogue']"
+    <div class="flex items-center gap-2 text-xl font-semibold">
+      <a
+        [classList]="
+          'py-4 px-8 hover:underline rounded-md ' +
+          (route === '/catalogue' && 'bg-blue-500')
+        "
+        [routerLink]="['/catalogue']"
         >Catalogue Page</a
       >
-      <a class="hover:underline" [routerLink]="['/trainer']">Trainer Page</a>
+      <a
+        [classList]="
+          'py-4 px-8 hover:underline rounded-md ' +
+          (route === '/trainer' && 'bg-blue-500')
+        "
+        [routerLink]="['/trainer']"
+        >Trainer Page</a
+      >
     </div>
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-6">
       <p class="text-lg italic">
         Logged in as
         <span class="font-semibold text-xl not-italic">{{ username }}</span>
