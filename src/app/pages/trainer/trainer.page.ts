@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-trainer',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trainer.page.css'],
 })
 export class TrainerPage implements OnInit {
-  constructor() {}
+  public capturedPokemon: string[] = [];
 
-  ngOnInit(): void {}
+  constructor(private readonly pokemonService: PokemonService) {}
+
+  public ngOnInit(): void {
+    this.capturedPokemon = [...this.pokemonService.capturedPokemon];
+  }
 }

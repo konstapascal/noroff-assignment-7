@@ -8,13 +8,8 @@ import { FormattedPokemon } from 'src/app/models/pokemon.model';
 })
 export class CataloguePokemonListComponent implements OnInit {
   @Input() allPokemonArr: FormattedPokemon[] = [];
-  @Output() clicked: EventEmitter<FormattedPokemon> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
-
-  public onPokemonClick(pokemon: FormattedPokemon): void {
-    this.clicked.emit(pokemon);
-  }
 }

@@ -15,6 +15,8 @@ const {
   TRAINERS_API_URL,
 } = environment;
 
+const POKEMON_STORAGE_KEY = 'allPokemon';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,9 +28,10 @@ export class PokemonService {
     private readonly userService: UserService,
     private readonly authService: AuthService
   ) {
-    this.getUserPokemon(userService.user?.username)?.subscribe(
-      (userPokemon) => (this.capturedPokemon = userPokemon)
-    );
+    const storedUser = sessionStorage.getItem('user');
+    if (!storedUser) return;
+
+    this.capturedPokemon = JSON.parse(storedUser).pokemon;
   }
 
   public getAllPokemon(
@@ -56,12 +59,39 @@ export class PokemonService {
     return formattedPokemonArr;
   }
 
+  public setPokemon(allPokemonArr: FormattedPokemon[] | undefined): void {
+    sessionStorage.setItem(POKEMON_STORAGE_KEY, JSON.stringify(allPokemonArr));
+  }
+
   public addPokemon(pokemon: FormattedPokemon, username: string | undefined) {
     if (!username) return;
 
+    const url = `${TRAINERS_API_URL}/${this.userService.user?.id}`;
     const oldPokemonArr = this.getUserPokemon(username);
 
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-api-key': TRAINERS_API_KEY,
+    });
+
+    oldPokemonArr?.subscribe((oldPokemonArr) => {
+      if (!oldPokemonArr) return;
+
+      return this.http
+        .patch(url, { pokemon: [...oldPokemonArr, pokemon.name] }, { headers })
+        .subscribe((newUser) => {
+          this.userService.setUser(newUser as User);
+          this.capturedPokemon = [...oldPokemonArr, pokemon.name];
+        });
+    });
+  }
+
+  public removePokemon(pokemonName: string, username: string | undefined) {
+    if (!username) return;
+
     const url = `${TRAINERS_API_URL}/${this.userService.user?.id}`;
+    const oldPokemonArr = this.getUserPokemon(username);
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'x-api-key': TRAINERS_API_KEY,
@@ -69,13 +99,17 @@ export class PokemonService {
 
     return oldPokemonArr?.subscribe((oldPokemonArr) => {
       if (!oldPokemonArr) return;
-      if (oldPokemonArr.includes(pokemon.name)) return;
 
-      return this.http
-        .patch(url, { pokemon: [...oldPokemonArr, pokemon.name] }, { headers })
+      const newPokemonArr = oldPokemonArr.filter(
+        (_pokemon) => _pokemon !== pokemonName
+      );
+
+      this.http
+        .patch(url, { pokemon: [...newPokemonArr] }, { headers })
         .subscribe((newUser) => {
           this.userService.setUser(newUser as User);
-          return newUser;
+          this.capturedPokemon = [...newPokemonArr];
+          location.reload();
         });
     });
   }

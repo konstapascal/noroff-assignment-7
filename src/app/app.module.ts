@@ -13,6 +13,8 @@ import { NotFoundPage } from './pages/not-found/not-found.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePokemonListComponent } from './components/catalogue-page-components/catalogue-pokemon-list/catalogue-pokemon-list.component';
 import { CataloguePokemonCardComponent } from './components/catalogue-page-components/catalogue-pokemon-card/catalogue-pokemon-card.component';
+import { TrainerPokemonCardComponent } from './components/trainer-page-components/trainer-pokemon-card/trainer-pokemon-card.component';
+import { TrainerPokemonListComponent } from './components/trainer-page-components/trainer-pokemon-list/trainer-pokemon-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { CataloguePokemonCardComponent } from './components/catalogue-page-compo
     CataloguePokemonCardComponent,
     TrainerPage,
     NotFoundPage,
+    TrainerPokemonCardComponent,
+    TrainerPokemonListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

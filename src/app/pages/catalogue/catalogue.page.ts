@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormattedPokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-catalogue',
@@ -11,18 +10,19 @@ import { UserService } from 'src/app/services/user.service';
 export class CataloguePage implements OnInit {
   public allPokemonArr: FormattedPokemon[] = [];
 
-  constructor(
-    private readonly pokemonService: PokemonService,
-    private readonly userService: UserService
-  ) {}
+  constructor(private readonly pokemonService: PokemonService) {}
 
   public ngOnInit(): void {
-    this.pokemonService
-      .getAllPokemon()
-      .subscribe((_allPokemonArr) => (this.allPokemonArr = _allPokemonArr));
-  }
+    const sessionPokemon = sessionStorage.getItem('allPokemon');
 
-  public onPokemonClick(pokemon: FormattedPokemon): void {
-    this.pokemonService.addPokemon(pokemon, this.userService.user?.username);
+    if (!sessionPokemon) {
+      this.pokemonService.getAllPokemon().subscribe((_allPokemonArr) => {
+        this.allPokemonArr = _allPokemonArr;
+        this.pokemonService.setPokemon(_allPokemonArr);
+      });
+      return;
+    }
+
+    this.allPokemonArr = JSON.parse(sessionPokemon);
   }
 }

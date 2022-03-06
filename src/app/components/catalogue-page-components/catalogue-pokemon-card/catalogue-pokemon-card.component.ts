@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormattedPokemon } from 'src/app/models/pokemon.model';
+import { PokemonService } from 'src/app/services/pokemon.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-catalogue-pokemon-card',
@@ -8,14 +10,26 @@ import { FormattedPokemon } from 'src/app/models/pokemon.model';
 })
 export class CataloguePokemonCardComponent implements OnInit {
   @Input() pokemon?: FormattedPokemon;
-  @Output() clicked: EventEmitter<FormattedPokemon> = new EventEmitter();
 
-  constructor() {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly pokemonService: PokemonService
+  ) {}
 
   ngOnInit(): void {}
 
-  public onPokemonClick(pokemon: FormattedPokemon | undefined): void {
-    this.clicked.emit(pokemon);
+  public isPokemonCaptured(
+    pokemon: FormattedPokemon | undefined
+  ): boolean | undefined {
+    if (!pokemon) return;
+    const capturedPokemon = this.userService.user?.pokemon;
+    return capturedPokemon?.includes(pokemon.name);
+  }
+
+  public onPokemonCaptureClick(pokemon: FormattedPokemon | undefined): void {
+    if (!pokemon) return;
+
+    this.pokemonService.addPokemon(pokemon, this.userService.user?.username);
   }
 
   public capitalize(word: string | undefined): string | undefined {

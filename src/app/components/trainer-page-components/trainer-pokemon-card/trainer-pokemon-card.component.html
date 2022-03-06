@@ -1,0 +1,17 @@
+<div class="border-2 text-center p-4 bg-slate-50">
+  <p class="text-xl font-semibold">
+    {{ capitalize(pokemon) }}
+  </p>
+  <img
+    width="150px"
+    class="border-2 mt-2 mb-4"
+    src="{{ getImageUrl(pokemon) }}"
+    alt=""
+  />
+  <button
+    (click)="onPokemonReleaseClick(pokemon)"
+    class="bg-blue-400 text-slate-50 rounded-sm font-semibold px-4 py-2"
+  >
+    Release
+  </button>
+</div>

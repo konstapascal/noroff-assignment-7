@@ -9,8 +9,9 @@
     alt=""
   />
   <button
-    class="bg-blue-400 text-slate-50 rounded-sm font-semibold px-4 py-2"
-    (click)="onPokemonClick(pokemon)"
+    class="bg-blue-400 text-slate-50 disabled:opacity-50 rounded-sm font-semibold px-4 py-2"
+    (click)="onPokemonCaptureClick(pokemon)"
+    [disabled]="isPokemonCaptured(pokemon)"
   >
     Capture
   </button>
