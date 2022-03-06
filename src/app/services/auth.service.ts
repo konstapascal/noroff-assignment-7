@@ -4,6 +4,7 @@ import { map, Observable, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { User } from '../models/user.model';
+import { PokemonService } from './pokemon.service';
 import { UserService } from './user.service';
 
 const { TRAINERS_API_URL, TRAINERS_API_KEY } = environment;

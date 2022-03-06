@@ -63,6 +63,10 @@ export class PokemonService {
     sessionStorage.setItem(POKEMON_STORAGE_KEY, JSON.stringify(allPokemonArr));
   }
 
+  public clearPokemon(): void {
+    this.capturedPokemon = [];
+  }
+
   public addPokemon(pokemon: FormattedPokemon, username: string | undefined) {
     if (!username) return;
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { User } from '../models/user.model';
+import { PokemonService } from './pokemon.service';
 
 const USER_STORAGE_KEY = 'user';
 

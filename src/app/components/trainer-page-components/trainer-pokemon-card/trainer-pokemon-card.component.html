@@ -1,16 +1,18 @@
-<div class="border-2 text-center p-4 bg-slate-50">
-  <p class="text-xl font-semibold">
+<div
+  class="border-2 border-yellow-100 text-blue-50 shadow-2xl transform-gpu hover:scale-110 rounded-lg transition-transform text-center p-4 bg-blue-400 py-6"
+>
+  <p class="text-3xl font-semibold">
     {{ capitalize(pokemon) }}
   </p>
   <img
-    width="150px"
-    class="border-2 mt-2 mb-4"
+    width="200px"
+    class="mt-4 mb-8 border-2 border-yellow-200 border-dashed bg-blue-300 rounded-lg"
     src="{{ getImageUrl(pokemon) }}"
     alt=""
   />
   <button
     (click)="onPokemonReleaseClick(pokemon)"
-    class="bg-blue-400 text-slate-50 rounded-sm font-semibold px-4 py-2"
+    class="bg-blue-500 text-lg rounded-md hover:bg-blue-600 transition-colors font-semibold px-6 py-2"
   >
     Release
   </button>

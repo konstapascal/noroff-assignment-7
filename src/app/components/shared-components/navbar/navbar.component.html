@@ -1,18 +1,18 @@
-<nav class="fixed w-full bg-blue-200 py-6">
-  <div class="container flex justify-between items-center mx-auto">
-    <div class="flex gap-4 text-2xl text-blue-600">
+<nav class="bg-blue-400 border-b-2 border-yellow-100 text-blue-50 py-8">
+  <div class="container flex justify-evenly items-center mx-auto">
+    <div class="flex gap-8 text-3xl font-semibold">
       <a class="hover:underline" [routerLink]="['/catalogue']"
         >Catalogue Page</a
       >
       <a class="hover:underline" [routerLink]="['/trainer']">Trainer Page</a>
     </div>
-    <div class="flex items-center gap-4">
-      <p class="text-xl italic">
+    <div class="flex items-center gap-8">
+      <p class="text-lg italic">
         Logged in as
-        <span class="font-semibold not-italic">{{ username }}</span>
+        <span class="font-semibold text-xl not-italic">{{ username }}</span>
       </p>
       <button
-        class="text-lg font-semibold bg-red-500 text-slate-50 px-4 py-2 rounded-sm"
+        class="text-xl font-semibold bg-blue-500 hover:bg-blue-600 rounded-md transition-all text-slate-50 px-6 py-3"
         (click)="onLogout()"
       >
         Logout

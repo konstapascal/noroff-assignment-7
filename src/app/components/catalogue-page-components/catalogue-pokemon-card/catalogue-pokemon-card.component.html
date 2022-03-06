@@ -1,18 +1,26 @@
-<div class="border-2 text-center p-4 bg-slate-50">
-  <p class="text-xl font-semibold">
+<div
+  [classList]="
+    'border-2 border-yellow-100 text-blue-50 shadow-2xl transform-gpu hover:scale-110   rounded-lg transition-transform text-center p-4 bg-blue-400 py-6 ' +
+    (isPokemonCaptured(pokemon) && 'opacity-40 hover:scale-100')
+  "
+>
+  <p class="text-3xl font-semibold">
     {{ capitalize(pokemon?.name) }}
   </p>
   <img
-    width="150px"
-    class="border-2 mt-2 mb-4"
+    width="200px"
+    class="mt-4 mb-8 border-2 border-yellow-200 border-dashed bg-blue-300 rounded-lg"
     src="{{ pokemon?.imageUrl }}"
     alt=""
   />
   <button
-    class="bg-blue-400 text-slate-50 disabled:opacity-50 rounded-sm font-semibold px-4 py-2"
+    [classList]="
+      'bg-blue-500 text-lg rounded-md hover:bg-blue-600 transition-colors font-semibold px-6 py-2 ' +
+      (isPokemonCaptured(pokemon) && 'hover:bg-blue-500')
+    "
     (click)="onPokemonCaptureClick(pokemon)"
     [disabled]="isPokemonCaptured(pokemon)"
   >
-    Capture
+    {{ isPokemonCaptured(pokemon) ? "Captured" : "Capture" }}
   </button>
 </div>

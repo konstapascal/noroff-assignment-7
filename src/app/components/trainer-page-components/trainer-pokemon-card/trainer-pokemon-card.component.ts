@@ -14,8 +14,7 @@ export class TrainerPokemonCardComponent implements OnInit {
 
   constructor(
     private readonly pokemonService: PokemonService,
-    private readonly userService: UserService,
-    private readonly router: Router
+    private readonly userService: UserService
   ) {}
 
   ngOnInit(): void {}
