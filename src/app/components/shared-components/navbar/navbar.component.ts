@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
 
   public onLogout(): void {
     this.authService.logout();
-    this.pokemonService.clearPokemon();
+    this.pokemonService.capturedPokemon = [];
     this.router.navigateByUrl('/');
   }
 

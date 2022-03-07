@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormattedPokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
+import formatId from 'src/utils/formatId';
 
 @Component({
   selector: 'app-trainer-pokemon-card',
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TrainerPokemonCardComponent implements OnInit {
   @Input() pokemon?: string;
+  formatId = formatId;
 
   constructor(
     private readonly pokemonService: PokemonService,
@@ -24,7 +26,21 @@ export class TrainerPokemonCardComponent implements OnInit {
     return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
-  public getImageUrl(pokemon: string | undefined) {
+  public getPokemonId(pokemon: string | undefined) {
+    if (!pokemon) return;
+
+    const sessionAllPokemon = sessionStorage.getItem('allPokemon');
+    if (!sessionAllPokemon) return;
+
+    const parsedAllPokemon = JSON.parse(sessionAllPokemon);
+    const foundPokemon = parsedAllPokemon.find(
+      (_pokemon: FormattedPokemon) => _pokemon.name === pokemon
+    );
+
+    return foundPokemon.id;
+  }
+
+  public getPokemonImageUrl(pokemon: string | undefined) {
     if (!pokemon) return;
 
     const sessionAllPokemon = sessionStorage.getItem('allPokemon');

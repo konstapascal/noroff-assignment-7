@@ -4,10 +4,11 @@
   <p class="text-3xl font-semibold">
     {{ capitalize(pokemon) }}
   </p>
+  <p class="text-xl italic">#{{ formatId(getPokemonId(pokemon)) }}</p>
   <img
     width="200px"
     class="mt-4 mb-8 border-2 border-yellow-200 border-dashed bg-blue-300 rounded-lg"
-    src="{{ getImageUrl(pokemon) }}"
+    src="{{ getPokemonImageUrl(pokemon) }}"
     alt=""
   />
   <button

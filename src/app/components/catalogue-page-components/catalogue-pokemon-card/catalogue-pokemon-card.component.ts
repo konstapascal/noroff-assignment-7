@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormattedPokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
+import formatId from 'src/utils/formatId';
 
 @Component({
   selector: 'app-catalogue-pokemon-card',
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CataloguePokemonCardComponent implements OnInit {
   @Input() pokemon?: FormattedPokemon;
+  formatId = formatId;
 
   constructor(
     private readonly userService: UserService,

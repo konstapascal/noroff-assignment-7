@@ -12,5 +12,6 @@ export interface Pokemon {
 
 export interface FormattedPokemon {
   name: string;
+  id: string;
   imageUrl: string;
 }

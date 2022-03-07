@@ -51,7 +51,8 @@ export class PokemonService {
       map((pokemonArr) =>
         pokemonArr.map((pokemon) => ({
           name: pokemon.name,
-          imageUrl: this.getImageUrl(pokemon.url),
+          id: this.getPokemonId(pokemon.url),
+          imageUrl: this.getPokemonImageUrl(pokemon.url),
         }))
       )
     );
@@ -61,10 +62,6 @@ export class PokemonService {
 
   public setPokemon(allPokemonArr: FormattedPokemon[] | undefined): void {
     sessionStorage.setItem(POKEMON_STORAGE_KEY, JSON.stringify(allPokemonArr));
-  }
-
-  public clearPokemon(): void {
-    this.capturedPokemon = [];
   }
 
   public addPokemon(pokemon: FormattedPokemon, username: string | undefined) {
@@ -109,10 +106,10 @@ export class PokemonService {
       );
 
       this.http
-        .patch(url, { pokemon: [...newPokemonArr] }, { headers })
+        .patch(url, { pokemon: newPokemonArr }, { headers })
         .subscribe((newUser) => {
           this.userService.setUser(newUser as User);
-          this.capturedPokemon = [...newPokemonArr];
+          this.capturedPokemon = newPokemonArr;
           location.reload();
         });
     });
@@ -128,7 +125,7 @@ export class PokemonService {
       .pipe(map((user) => user?.pokemon || []));
   }
 
-  private getImageUrl(url: string): string {
+  private getPokemonImageUrl(url: string): string {
     const strIdx = url.search('/pokemon/');
     const idStartIdx = strIdx + 9;
 
@@ -137,5 +134,14 @@ export class PokemonService {
     const imageUrl = `${POKEMON_IMAGES_BASE_URL}/${id}.png`;
 
     return imageUrl;
+  }
+
+  private getPokemonId(url: string): string {
+    const strIdx = url.search('/pokemon/');
+    const idStartIdx = strIdx + 9;
+
+    const id = url.slice(idStartIdx, url.length - 1);
+
+    return id;
   }
 }
