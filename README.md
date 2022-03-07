@@ -1,27 +1,90 @@
-# NoroffAssignment7
+<h1 align="center">Noroff Assignment 7</h1>
+<p align="center">
+	<img src="https://www.pinclipart.com/picdir/big/537-5374089_react-js-logo-clipart.png" width="200">
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+<img alt="Version" src="https://img.shields.io/badge/version-0.1-blue.svg?cacheSeconds=2592000" />
+<a href="#" target="_blank">
+<img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+</a>
 
-## Development server
+Noroff assignment number 7, written by **Konstantinos Pascal** and **Michael Zaar**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The assignment is a pokemon collector app written in **Angular** and styled with **Tailwind**. It makes use of two APIs for managing trainers and the retrieval of pokemon.
 
-## Code scaffolding
+The [**JSON Server API**](https://kp-noroff-assignment-api.herokuapp.com/trainers) is hosted on Heroku and handles the creation of new users and CRUD operations on the users translations array.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Table of Contents
 
-## Build
+- [Live Demo](#live-demo)
+- [Screenshots](#screenshots)
+- [Diagram](#diagram)
+- [Install](#install)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Live Demo
 
-## Running unit tests
+**https://assignment-7-angular.herokuapp.com/**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Screenshots
 
-## Running end-to-end tests
+<!-- <p align="center">
+<img src="./src/assets/StartPage.png">
+</p>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<p align="center">
+<img src="./src/assets/CataloguePage.png">
+</p>
 
-## Further help
+<p align="center">
+<img src="./src/assets/TrainerPage.png">
+</p> -->
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Diagram
+
+<!-- <p align="center">
+<img src="./src/assets/PokemonAppDiagram.png">
+</p> -->
+
+## Install
+
+Clone the repository using:
+
+```
+git clone https://github.com/konstapascal/noroff-assignment-7.git
+```
+
+Go inside the cloned repository:
+
+```
+cd noroff-assignment-7
+```
+
+Install Angular CLI and node module dependencies using:
+
+```
+npm i -g @angular/cli
+npm install
+```
+
+Serve the web application locally using:
+
+```
+ng serve
+```
+
+## Maintainers
+
+[@konstapascal](https://github.com/konstapascal)
+[@msh-zaar](https://github.com/msh-zaar)
+
+## Contributing
+
+PRs accepted.
+
+## License
+
+MIT © 2022 Konstantinos Pascal

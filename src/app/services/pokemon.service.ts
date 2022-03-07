@@ -35,7 +35,7 @@ export class PokemonService {
   }
 
   public getAllPokemon(
-    limit: number = 200,
+    limit: number = 151,
     offset: number = 0
   ): Observable<FormattedPokemon[]> {
     const url = `${POKEMON_API_URL}?limit=${limit}&offset${offset}`;
