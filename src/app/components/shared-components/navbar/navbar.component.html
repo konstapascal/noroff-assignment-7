@@ -1,4 +1,4 @@
-<nav class="bg-blue-400 border-b-2 border-yellow-100 text-blue-50 py-8">
+<nav class="bg-dark-blue border-b-2 border-yellow text-yellow py-8">
   <div
     class="container flex flex-col md:flex-row items-center justify-between xl:justify-around gap-4 mx-auto"
   >
@@ -8,7 +8,7 @@
       <a
         [classList]="
           'py-2 px-4 lg:py-4 lg:px-8 hover:underline rounded-md ' +
-          (route === '/catalogue' && 'bg-blue-500')
+          (route === '/catalogue' && 'bg-light-blue')
         "
         [routerLink]="['/catalogue']"
         >Catalogue Page</a
@@ -16,7 +16,7 @@
       <a
         [classList]="
           'py-2 px-4 lg:py-4 lg:px-8 hover:underline rounded-md ' +
-          (route === '/trainer' && 'bg-blue-500')
+          (route === '/trainer' && 'bg-light-blue')
         "
         [routerLink]="['/trainer']"
         >Trainer Page</a
@@ -28,7 +28,7 @@
         <span class="font-semibold text-xl not-italic">{{ username }}</span>
       </p>
       <button
-        class="text-lg lg:text-xl font-semibold bg-blue-500 hover:bg-blue-600 rounded-md transition-all text-slate-50 px-4 py-2 lg:px-6 lg:py-3"
+        class="text-lg lg:text-xl font-semibold bg-light-blue hover:bg-yellow rounded-md transition-all text-boring-text px-4 py-2 lg:px-6 lg:py-3"
         (click)="onLogout()"
       >
         Logout
