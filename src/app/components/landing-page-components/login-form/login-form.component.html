@@ -1,0 +1,36 @@
+<form
+  class="mt-8 lg:mt-6 text-xl text-center"
+  ngForm
+  #loginForm="ngForm"
+  (ngSubmit)="onSubmit(loginForm)"
+>
+  <label for="username" class="sr-only">Username: </label>
+  <input
+    type="text"
+    placeholder="Choose an username"
+    #username="ngModel"
+    ngModel
+    name="username"
+    id="username"
+    required
+    minlength="4"
+    maxlength="40"
+    class="w-3/4 lg:w-4/12 px-4 py-4 rounded-md shadow-md"
+  />
+
+  <button
+    class="font-semibold mt-6 bg-blue-600 shadow-md disabled:opacity-50 disabled:hover:bg-blue-600 hover:bg-blue-700 ml-4 rounded-md transition-all text-slate-50 px-8 py-4"
+    type="submit"
+    [disabled]="loginForm.invalid"
+  >
+    Submit
+  </button>
+
+  <div
+    class="mt-6 font-semibold text-2xl text-blue-200"
+    *ngIf="username.errors && (username.dirty || username.touched)"
+  >
+    <p *ngIf="username.errors['required']">Username is required!</p>
+    <p *ngIf="username.errors['minlength']">Username is too short!</p>
+  </div>
+</form>
