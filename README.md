@@ -1,6 +1,6 @@
 <h1 align="center">Noroff Assignment 7</h1>
 <p align="center">
-	<img src="https://www.pinclipart.com/picdir/big/537-5374089_react-js-logo-clipart.png" width="200">
+	<img src="https://cdn.freebiesupply.com/logos/large/2x/angular-icon-1-logo-png-transparent.png" width="200">
 </p>
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
@@ -13,7 +13,9 @@ Noroff assignment number 7, written by **Konstantinos Pascal** and **Michael Zaa
 
 The assignment is a pokemon collector app written in **Angular** and styled with **Tailwind**. It makes use of two APIs for managing trainers and the retrieval of pokemon.
 
-The [**JSON Server API**](https://kp-noroff-assignment-api.herokuapp.com/trainers) is hosted on Heroku and handles the creation of new users and CRUD operations on the users translations array.
+The [**JSON Server API**](https://kp-noroff-assignment-api.herokuapp.com/trainers) is hosted on Heroku and handles the creation of new users and CRUD operations on the users pokemon array.
+
+The [**PokeAPI**](https://pokeapi.co/) has been used for the retrieval of pokemon and images of those pokemon.
 
 ## Table of Contents
 
@@ -27,13 +29,9 @@ The [**JSON Server API**](https://kp-noroff-assignment-api.herokuapp.com/trainer
 
 ## Live Demo
 
-**https://assignment-7-angular.herokuapp.com/**
+**https://angular-assignment-7.herokuapp.com/**
 
 ## Screenshots
-
-<!-- <p align="center">
-<img src="./src/assets/StartPage.png">
-</p>
 
 <p align="center">
 <img src="./src/assets/CataloguePage.png">
@@ -41,13 +39,13 @@ The [**JSON Server API**](https://kp-noroff-assignment-api.herokuapp.com/trainer
 
 <p align="center">
 <img src="./src/assets/TrainerPage.png">
-</p> -->
+</p>
 
 ## Diagram
 
-<!-- <p align="center">
+<p align="center">
 <img src="./src/assets/PokemonAppDiagram.png">
-</p> -->
+</p>
 
 ## Install
 
@@ -78,7 +76,7 @@ ng serve
 
 ## Maintainers
 
-[@konstapascal](https://github.com/konstapascal)
+[@konstapascal](https://github.com/konstapascal)\
 [@msh-zaar](https://github.com/msh-zaar)
 
 ## Contributing
@@ -87,4 +85,4 @@ PRs accepted.
 
 ## License
 
-MIT © 2022 Konstantinos Pascal
+MIT © 2022 Konstantinos Pascal & Michael Zaar
