@@ -1,5 +1,5 @@
 <form
-  class="mt-12 text-xl text-center"
+  class="mt-8 lg:mt-6 text-xl text-center"
   ngForm
   #loginForm="ngForm"
   (ngSubmit)="onSubmit(loginForm)"
@@ -15,11 +15,11 @@
     required
     minlength="4"
     maxlength="40"
-    class="w-1/5 px-4 py-4 rounded-md shadow-md"
+    class="w-3/4 lg:w-4/12 px-4 py-4 rounded-md shadow-md"
   />
 
   <button
-    class="font-semibold bg-blue-600 shadow-md disabled:opacity-50 disabled:hover:bg-blue-600 hover:bg-blue-700 ml-4 rounded-md transition-all text-slate-50 px-8 py-4"
+    class="font-semibold mt-6 bg-blue-600 shadow-md disabled:opacity-50 disabled:hover:bg-blue-600 hover:bg-blue-700 ml-4 rounded-md transition-all text-slate-50 px-8 py-4"
     type="submit"
     [disabled]="loginForm.invalid"
   >
